@@ -4,6 +4,8 @@ import waveImage from './assets/wave.jpg?url';
 
 // 导航组件
 function Navigation({ currentPage, setCurrentPage }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  
   const navItems = [
     { id: 'home', label: '首页' },
     { id: 'about', label: '关于我们' },
@@ -46,7 +48,10 @@ function Navigation({ currentPage, setCurrentPage }) {
           
           {/* 移动端菜单按钮 */}
           <div className="md:hidden">
-            <button className="text-gray-700 hover:text-blue-600">
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-700 hover:text-blue-600 p-2"
+            >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -54,6 +59,30 @@ function Navigation({ currentPage, setCurrentPage }) {
           </div>
         </div>
       </div>
+      
+      {/* 移动端菜单展开内容 */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setCurrentPage(item.id)
+                  setIsMobileMenuOpen(false)
+                }}
+                className={`block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${
+                  currentPage === item.id
+                    ? 'text-blue-600 bg-blue-50'
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
@@ -83,19 +112,19 @@ function HomePage({ setCurrentPage }) {
             </p>
             
             {/* 按钮组 */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center flex-wrap">
               <button 
                 onClick={() => setCurrentPage('about')}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[140px]"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 sm:py-4 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[100px] sm:min-w-[140px] text-sm sm:text-base"
               >
                 关于我们
               </button>
-              <button className="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[140px]">
+              <button className="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-3 px-4 sm:py-4 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[100px] sm:min-w-[140px] text-sm sm:text-base">
                 报关平台
               </button>
               <button 
                 onClick={() => setCurrentPage('contact')}
-                className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[140px]"
+                className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 text-white font-semibold py-3 px-4 sm:py-4 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[100px] sm:min-w-[140px] text-sm sm:text-base"
               >
                 联系我们
               </button>
