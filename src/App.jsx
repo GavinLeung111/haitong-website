@@ -1747,7 +1747,7 @@ function ContactPage() {
                 </svg>
                 <div>
                   <h3 className="font-semibold">办公地址</h3>
-                  <p className="text-gray-600">深圳市龙华区龙华街道三联社区富泉新村北区23号610</p>
+                  <p className="text-gray-600">深圳市龙华区龙华街道富泉大厦A610</p>
                 </div>
               </div>
               
@@ -1843,7 +1843,7 @@ function Footer() {
               <ul className="space-y-2 text-gray-400">
                 <li>客服微信：HT_4706</li>
                 <li>邮箱：ht00214706@163.com</li>
-                <li>深圳市龙华区龙华街道三联社区富泉新村北区23号610</li>
+                <li>深圳市龙华区龙华街道富泉大厦A610</li>
               </ul>
             </div>
             
