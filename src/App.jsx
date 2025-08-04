@@ -89,14 +89,32 @@ function Navigation({ currentPage, setCurrentPage }) {
 
 // 首页组件
 function HomePage({ setCurrentPage }) {
+  // 处理报关平台按钮点击
+  const handleBaoguanClick = () => {
+    window.open('https://htkj.guanmaoyun.com/', '_blank');
+  };
+
+  // 预加载背景图片
+  useEffect(() => {
+    const img = new Image();
+    img.src = waveImage;
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 英雄区域 */}
       <section 
         className="relative text-white h-[50vh]"
       >
-        {/* 背景图片 */}
-        <img src={waveImage} alt="background" className="absolute inset-0 w-full h-full object-cover" />
+        {/* 背景图片 - 添加预加载和优化 */}
+        <img 
+          src={waveImage} 
+          alt="background" 
+          className="absolute inset-0 w-full h-full object-cover" 
+          loading="eager"
+          decoding="async"
+          style={{ willChange: 'transform' }}
+        />
         {/* 背景遮罩 - 暂时移除 */}
         {/* <div className="absolute inset-0 bg-black bg-opacity-20"></div> */}
         
@@ -119,7 +137,10 @@ function HomePage({ setCurrentPage }) {
               >
                 关于我们
               </button>
-              <button className="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-3 px-4 sm:py-4 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[100px] sm:min-w-[140px] text-sm sm:text-base">
+              <button 
+                onClick={handleBaoguanClick}
+                className="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-3 px-4 sm:py-4 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[100px] sm:min-w-[140px] text-sm sm:text-base"
+              >
                 报关平台
               </button>
               <button 
