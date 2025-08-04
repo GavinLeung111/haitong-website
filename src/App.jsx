@@ -126,7 +126,7 @@ function HomePage({ setCurrentPage }) {
               <span className="block text-blue-200">值得信赖的伙伴</span>
             </h1>
             <p className="text-xl md:text-2xl mb-12 text-blue-100 drop-shadow-md">
-              海通财务为您提供全方位的跨境财税解决方案
+              海通跨境为您提供全方位的跨境财税合规解决方案
             </p>
             
             {/* 按钮组 */}
@@ -322,7 +322,7 @@ function HomePage({ setCurrentPage }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">合规会计外包</h3>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">跨境电商财税合规会计外包</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 财务总监+专业会计服务，一站式整包财税合规所有工作
               </p>
@@ -373,7 +373,7 @@ function HomePage({ setCurrentPage }) {
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4 text-gray-900">服务人群</h3>
               <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                小规模纳税人、一般纳税人、个体工商户、个人独资企业等需要专业财税合规指导的企业
+                小规模纳税人、一般纳税人、个体工商户、个人独资企业等需要专业财税合规指导的跨境电商中小卖家
               </p>
             </div>
           </div>
@@ -400,7 +400,7 @@ function HomePage({ setCurrentPage }) {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">专业可靠</h3>
-              <p className="text-gray-600">多年行业经验，专业团队为您提供可靠的跨境财税合规服务</p>
+              <p className="text-gray-600">多年跨境财税经验，专业团队护航，助您财税合规省心安心</p>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
@@ -438,8 +438,8 @@ function AboutPage() {
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-blue-100">
           <div className="lg:flex lg:items-center lg:gap-12">
             {/* 左侧：基本信息 */}
-            <div className="lg:w-2/5 text-center lg:text-left mb-8 lg:mb-0 lg:pl-8">
-              <div className="inline-block">
+            <div className="lg:w-2/5 text-center lg:text-left mb-8 lg:mb-0 lg:pl-2">
+              <div className="inline-block lg:ml-8">
                 <div className="w-48 h-48 mx-auto lg:mx-0 mb-6 rounded-full overflow-hidden border-4 border-blue-300 shadow-xl">
                   <img 
                     src="/frank.png" 
@@ -471,58 +471,54 @@ function AboutPage() {
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8">
                 <h4 className="text-2xl font-bold text-gray-900 mb-6 text-center lg:text-left">专业背景与成就</h4>
                 
-                <div className="grid md:grid-cols-2 gap-6">
-                  {/* 左列 */}
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
-                      <div>
-                        <h5 className="font-semibold text-gray-800 mb-1">公司创始人</h5>
-                        <p className="text-sm text-gray-600">深圳市海通财务管理有限公司</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
-                      <div>
-                        <h5 className="font-semibold text-gray-800 mb-1">丰富经验</h5>
-                        <p className="text-sm text-gray-600">30年+财务管理服务经验</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
-                      <div>
-                        <h5 className="font-semibold text-gray-800 mb-1">专业领域</h5>
-                        <p className="text-sm text-gray-600">跨境电商财税合规专家</p>
-                      </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* 第一行 */}
+                  <div className="flex items-start gap-3">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-1">公司创始人</h5>
+                      <p className="text-sm text-gray-600">深圳市海通财务管理有限公司</p>
                     </div>
                   </div>
                   
-                  {/* 右列 */}
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
-                      <div>
-                        <h5 className="font-semibold text-gray-800 mb-1">核心服务</h5>
-                        <p className="text-sm text-gray-600">一站式财税解决方案</p>
-                      </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-1">专业领域</h5>
+                      <p className="text-sm text-gray-600">曾担任4家上市公司财务总监<br/>亲手运作2家公司上市<br/>跨境财税合规专家</p>
                     </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
-                      <div>
-                        <h5 className="font-semibold text-gray-800 mb-1">专业特长</h5>
-                        <p className="text-sm text-gray-600">跨境股权设计与供应链管理</p>
-                      </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-1">专业特长</h5>
+                      <p className="text-sm text-gray-600">跨境股权设计与供应链管理</p>
                     </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
-                      <div>
-                        <h5 className="font-semibold text-gray-800 mb-1">团队领导</h5>
-                        <p className="text-sm text-gray-600">带领专业团队提供高质量服务</p>
-                      </div>
+                  </div>
+                  
+                  {/* 第二行 */}
+                  <div className="flex items-start gap-3">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-1">核心服务</h5>
+                      <p className="text-sm text-gray-600">一站式财税合规解决方案</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-1">丰富经验</h5>
+                      <p className="text-sm text-gray-600">8年跨境财税行业从业经验<br/>30年+财务管理服务经验</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full mt-1 flex-shrink-0"></div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-1">团队领导</h5>
+                      <p className="text-sm text-gray-600">带领专业团队提供高质量服务</p>
                     </div>
                   </div>
                 </div>
@@ -967,140 +963,7 @@ function AboutPage() {
   )
 }
 
-// 服务项目页面
-function ServicesPage() {
-  const services = [
-    {
-      title: "合规会计外包",
-      description: "财务总监+专业会计服务，一站式整包财税合规所有工作",
-      features: ["财务总监服务", "专业会计团队", "一站式服务", "财税合规"]
-    },
-    {
-      title: "财税顾问指导",
-      description: "资深财务总监一对一顾问指导，专业会计手把手实操指导，包教包会",
-      features: ["一对一顾问", "实操指导", "包教包会", "资深总监"]
-    },
-    {
-      title: "出口退税办理",
-      description: "专业团队、高效办理、极速退税、收费灵活、一对一办理",
-      features: ["专业团队", "高效办理", "极速退税", "收费灵活"]
-    },
-    {
-      title: "财税课程学习",
-      description: "跨境企业财税合规、股权设计、绩效管理、阿米巴经营学等线上线下课程",
-      features: ["跨境财税合规", "股权设计", "绩效管理", "阿米巴经营"]
-    }
-  ];
-
-  const targetAudience = {
-    title: "服务人群",
-    description: "专业财税合规指导服务",
-    groups: ["小规模纳税人", "一般纳税人", "个体工商户", "个人独资企业"]
-  };
-
-  return (
-    <div className="min-h-screen bg-gray-50 py-16">
-      <div className="w-full px-1 sm:px-2 lg:px-3">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">核心服务项目</h1>
-          <p className="text-xl text-gray-600">专业的财税合规服务，为您的企业保驾护航</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 mb-4">{service.description}</p>
-              <ul className="space-y-2">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-gray-700">
-                    <span className="w-2 h-2 bg-primary-500 rounded-full mr-2"></span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{targetAudience.title}</h2>
-            <p className="text-lg text-gray-600">{targetAudience.description}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {targetAudience.groups.map((group, index) => (
-              <div key={index} className="text-center p-4 bg-primary-50 rounded-lg">
-                <div className="w-12 h-12 bg-primary-500 rounded-full mx-auto mb-3 flex items-center justify-center">
-                  <span className="text-white font-bold">{index + 1}</span>
-                </div>
-                <h3 className="font-semibold text-gray-900">{group}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function TrainingPage() {
-  const courses = [
-    {
-      title: "跨境电商财税合规",
-      description: "全面掌握跨境电商的财税政策和合规要求",
-      duration: "40课时",
-      level: "初级-中级"
-    },
-    {
-      title: "企业股权设计与激励",
-      description: "学习现代企业股权结构设计和员工激励机制",
-      duration: "32课时",
-      level: "中级-高级"
-    },
-    {
-      title: "绩效管理体系建设",
-      description: "构建科学有效的企业绩效管理体系",
-      duration: "24课时",
-      level: "中级"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gray-50 py-16">
-      <div className="w-full px-1 sm:px-2 lg:px-3">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">课程培训</h1>
-          <p className="text-xl text-gray-600">提升财税专业技能，助力企业发展</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {courses.map((course, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-semibold text-blue-700 mb-3">{course.title}</h3>
-              <div className="mb-4">
-                <p className="text-sm text-gray-500 mb-2">关键词：{course.keywords}</p>
-                <p className="text-gray-600">{course.description}</p>
-              </div>
-              <div className="space-y-2 text-sm text-gray-600 mb-4">
-                <div className="flex items-center">
-                  <span className="font-medium text-gray-700">课程形式：</span>
-                  <span className="ml-2">{course.duration}</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="font-medium text-gray-700">{course.level}</span>
-                </div>
-              </div>
-              <button className="w-full mt-4 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
-                了解详情
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+// 删除了未使用的ServicesPage和TrainingPage组件
 
 // 课程培训页面
 function CoursesPage() {
