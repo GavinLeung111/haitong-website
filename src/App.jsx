@@ -1821,7 +1821,7 @@ function WeChatQRCode() {
             <img 
               src="/WechatIMG48.jpg" 
               alt="微信二维码" 
-              className={`transition-all duration-300 cursor-pointer ${isExpanded ? 'w-32 h-32' : 'w-16 h-16'} mx-auto rounded-lg`}
+              className={`transition-all duration-300 cursor-pointer ${isExpanded ? 'w-64 h-64' : 'w-32 h-32'} mx-auto rounded-lg`}
               onClick={toggleExpanded}
             />
             
