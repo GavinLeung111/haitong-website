@@ -1850,10 +1850,43 @@ function WeChatQRCode() {
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
 
+  // 新增：统一导航方法并同步地址栏，避免刷新或直达出现 404
+  const navigate = (page) => {
+    setCurrentPage(page)
+    const path = page === 'home' ? '/' : `/${page}`
+    if (typeof window !== 'undefined' && window.location.pathname !== path) {
+      window.history.pushState({}, '', path)
+    }
+  }
+
+  // 新增：根据地址栏初始化页面，并处理浏览器前进/后退
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const apply = () => {
+      const raw = window.location.pathname.replace(/^\/+|\/+$/g, '')
+      const page = raw === '' ? 'home' : raw
+      const allowed = ['home', 'about', 'courses', 'news', 'contact']
+      if (allowed.includes(page)) {
+        setCurrentPage(page)
+      } else {
+        setCurrentPage('home')
+        if (window.location.pathname !== '/') {
+          window.history.replaceState({}, '', '/')
+        }
+      }
+    }
+
+    apply()
+    const onPopState = () => apply()
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
+  }, [])
+
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <HomePage setCurrentPage={setCurrentPage} />
+        return <HomePage setCurrentPage={navigate} />
       case 'about':
         return <AboutPage />
       case 'courses':
@@ -1863,13 +1896,13 @@ function App() {
       case 'contact':
         return <ContactPage />
       default:
-        return <HomePage setCurrentPage={setCurrentPage} />
+        return <HomePage setCurrentPage={navigate} />
     }
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Navigation currentPage={currentPage} setCurrentPage={navigate} />
       <main>
         {renderPage()}
       </main>
