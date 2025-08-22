@@ -122,8 +122,8 @@ function HomePage({ setCurrentPage }) {
         <div className="relative w-full h-full flex flex-col items-center justify-center px-1 sm:px-2 lg:px-3 py-24">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-              跨境财税合规专家
-              <span className="block text-blue-200">值得信赖的伙伴</span>
+              深圳市海通财务管理有限公司（海通跨境财税）
+              <span className="block text-blue-200">跨境财税合规专家 · 值得信赖的伙伴</span>
             </h1>
             <p className="text-xl md:text-2xl mb-12 text-blue-100 drop-shadow-md">
               海通跨境为您提供全方位的跨境财税合规解决方案
@@ -434,6 +434,7 @@ function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12">
       <div className="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+        <h1 className="text-3xl font-bold text-gray-900 mb-6 text-center">深圳市海通财务管理有限公司（海通跨境财税）</h1>
         {/* 创始人介绍 */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-blue-100">
           <div className="lg:flex lg:items-center lg:gap-12">
@@ -1882,6 +1883,19 @@ function App() {
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
   }, [])
+
+  // 根据当前页面动态设置标题（突出公司全称）
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+    const map = {
+      home: '海通跨境财税 - 深圳市海通财务管理有限公司',
+      about: '关于我们 - 海通跨境财税',
+      courses: '课程培训 - 海通跨境财税',
+      news: '资讯动态 - 海通跨境财税',
+      contact: '联系我们 - 海通跨境财税'
+    }
+    document.title = map[currentPage] || '海通跨境财税 - 深圳市海通财务管理有限公司'
+  }, [currentPage])
 
   const renderPage = () => {
     switch (currentPage) {

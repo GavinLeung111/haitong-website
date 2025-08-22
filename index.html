@@ -16,19 +16,47 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="海通跨境财税 - 专业跨境电商财税合规服务专家" />
     <meta property="og:description" content="海通财务提供专业的跨境电商财税合规服务，包括跨境财税咨询、合规会计外包、企业培训课程等。" />
-    <meta property="og:image" content="/logo.png" />
+    <meta property="og:image" content="https://www.haitongcaishui.com/logo.png" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="海通跨境财税 - 专业跨境电商财税合规服务专家" />
     <meta property="twitter:description" content="海通财务提供专业的跨境电商财税合规服务，包括跨境财税咨询、合规会计外包、企业培训课程等。" />
-    <meta property="twitter:image" content="/logo.png" />
+    <meta property="twitter:image" content="https://www.haitongcaishui.com/logo.png" />
     
     <!-- 其他SEO设置 -->
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta name="baiduspider" content="index, follow" />
     <link rel="canonical" href="https://www.haitongcaishui.com" id="canonical-url" />
+    
+    <!-- 结构化数据：Organization（静态注入，便于搜索引擎解析） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "海通财务",
+      "url": "https://www.haitongcaishui.com",
+      "logo": "https://www.haitongcaishui.com/logo.png",
+      "alternateName": ["海通跨境财税"],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "ht00214706@163.com",
+        "availableLanguage": ["zh-CN"]
+      }],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CN",
+        "addressRegion": "广东省",
+        "addressLocality": "深圳市龙华区",
+        "streetAddress": "龙华街道富泉大厦A610"
+      },
+      "sameAs": [
+        "https://www.haitongcaishui.com/" 
+      ]
+    }
+    </script>
     
     <!-- 百度 JS 主动推送代码 -->
     <script>
@@ -48,6 +76,22 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- 无JS降级内容（帮助部分不执行JS的爬虫理解站点主题与结构） -->
+    <noscript>
+      <div>
+        <h1>海通跨境财税 - 跨境电商财税合规服务</h1>
+        <p>我们提供跨境财税咨询、合规会计外包、出口退税及企业培训等服务。请访问以下页面了解更多：</p>
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/about">关于我们</a></li>
+          <li><a href="/courses">课程培训</a></li>
+          <li><a href="/news">资讯动态</a></li>
+          <li><a href="/contact">联系我们</a></li>
+        </ul>
+      </div>
+    </noscript>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
