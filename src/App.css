@@ -1,2 +1,44 @@
 /* 这个文件现在使用 Tailwind CSS，所以保持空白 */
 /* 如果需要自定义样式，可以在这里添加 */
+
+/* 图片加载优化样式 */
+.hero-image {
+  transform: translateZ(0); /* 启用硬件加速 */
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 加载动画优化 */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* 图片渐进式加载过渡 */
+.image-fade-in {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-fade-in.loaded {
+  opacity: 1;
+}
+
+/* 性能优化：减少重绘 */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}

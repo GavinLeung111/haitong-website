@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import waveImage from './assets/wave.jpg?url';
+import waveImage from './assets/wave-optimized.jpg?url';
+import waveImageOriginal from './assets/wave.jpg?url';
 
 // 导航组件
 function Navigation({ currentPage, setCurrentPage }) {
@@ -89,15 +90,31 @@ function Navigation({ currentPage, setCurrentPage }) {
 
 // 首页组件
 function HomePage({ setCurrentPage }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [showHighRes, setShowHighRes] = useState(false);
+
   // 处理报关平台按钮点击
   const handleBaoguanClick = () => {
     window.open('https://htkj.guanmaoyun.com/', '_blank');
   };
 
-  // 预加载背景图片
+  // 渐进式图片加载策略
   useEffect(() => {
-    const img = new Image();
-    img.src = waveImage;
+    // 首先加载优化版本
+    const optimizedImg = new Image();
+    optimizedImg.onload = () => {
+      setImageLoaded(true);
+      
+      // 优化版本加载完成后，在后台预加载高清版本
+      setTimeout(() => {
+        const highResImg = new Image();
+        highResImg.onload = () => {
+          setShowHighRes(true);
+        };
+        highResImg.src = waveImageOriginal;
+      }, 500); // 延迟500ms加载高清版本，避免阻塞初始渲染
+    };
+    optimizedImg.src = waveImage;
   }, []);
 
   return (
@@ -106,24 +123,55 @@ function HomePage({ setCurrentPage }) {
       <section 
         className="relative text-white h-[50vh]"
       >
-        {/* 背景图片 - 添加预加载和优化 */}
-        <img 
-          src={waveImage} 
-          alt="background" 
-          className="absolute inset-0 w-full h-full object-cover" 
-          loading="eager"
-          decoding="async"
-          style={{ willChange: 'transform' }}
-        />
+        {/* 加载占位符 */}
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 animate-pulse">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-white text-lg font-medium">加载中...</div>
+            </div>
+          </div>
+        )}
+        
+        {/* 背景图片 - 渐进式加载 */}
+        {imageLoaded && (
+          <>
+            {/* 优化版本图片 */}
+             <img 
+               src={waveImage} 
+               alt="background" 
+               className={`hero-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500 will-change-opacity ${
+                 showHighRes ? 'opacity-0' : 'opacity-100'
+               }`}
+               loading="eager"
+               decoding="async"
+               fetchPriority="high"
+             />
+             
+             {/* 高清版本图片 */}
+             {showHighRes && (
+               <img 
+                 src={waveImageOriginal} 
+                 alt="background" 
+                 className="hero-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 will-change-opacity"
+                 loading="lazy"
+                 decoding="async"
+                 fetchPriority="low"
+               />
+             )}
+          </>
+        )}
+        
         {/* 背景遮罩 - 暂时移除 */}
         {/* <div className="absolute inset-0 bg-black bg-opacity-20"></div> */}
         
         {/* 内容区域 */}
-        <div className="relative w-full h-full flex flex-col items-center justify-center px-1 sm:px-2 lg:px-3 py-24">
+        <div className={`relative w-full h-full flex flex-col items-center justify-center px-1 sm:px-2 lg:px-3 py-24 transition-opacity duration-300 ${
+          imageLoaded ? 'opacity-100' : 'opacity-90'
+        }`}>
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-              深圳市海通财务管理有限公司（海通跨境财税）
-              <span className="block text-blue-200">跨境财税合规专家 · 值得信赖的伙伴</span>
+              跨境财税合规专家
+              <span className="block text-blue-200">值得信赖的伙伴</span>
             </h1>
             <p className="text-xl md:text-2xl mb-12 text-blue-100 drop-shadow-md">
               海通跨境为您提供全方位的跨境财税合规解决方案
